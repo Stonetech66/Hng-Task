@@ -5,7 +5,6 @@ import pandas as pd
 def convert():
     file_path=input(str('Enter your csv file path: '))
     json_path=input('Enter the file path to your created json file where you want the json to be generated:  ')
-    index_field=input('Enter the first header parameter on the first row of your csv file. i.e enter the first word in your csv file e.g Serial_No \nEnter here: ')
     data={}
     list=[]
     try:
@@ -13,7 +12,7 @@ def convert():
 
             csvreader=csv.DictReader(csvf)
             for rows in csvreader:
-                key= rows[index_field]
+                key= rows['Series Number']
                 data[key]= rows
                 Json_data=json.dumps(data, indent=4)
                 j=hashlib.sha256(Json_data.encode('utf-8')).hexdigest()
@@ -34,9 +33,7 @@ def convert():
         print('\nYour json file is ready ->', json_path)
     except FileNotFoundError:
             print('This file does not exist')
-    except KeyError:
-        print('The first Header parameter entered is incorrect. Enter the first word you see in your csv file')
-    
+  
 
 
 
