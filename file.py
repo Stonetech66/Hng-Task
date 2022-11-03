@@ -4,7 +4,7 @@ import json
 import pandas as pd
 def convert():
     file_path=input(str('Enter your csv file path: '))
-    json_path=input('Enter your created json file where you want the json to be generated:  ')
+    json_path=input('Enter the file path to your created json file where you want the json to be generated:  ')
     index_field=input('Enter the first header parameter on the first row of your csv file. i.e enter the first word in your csv file e.g Serial_No \nEnter here: ')
     data={}
     list=[]
