@@ -13,10 +13,29 @@ def convert():
             csvreader=csv.DictReader(csvf)
             for rows in csvreader:
                 key= rows['Series Number']
-                data[key]= rows
+                C={
+ 'format':'CHIP-0007', 
+'name' :rows['Name'], 
+'description':rows['Description'], 
+'minting_tool' :'SupaMinter/2.5.2', 
+'sensitive_content':False, 
+'series_number':rows['Series Number'], 
+'series_total':1000,
+'attributes' :[rows['Attributes']], 
+'gender' :rows['Gender'], 
+'uuid' :rows['UUID'] 
+
+              
+
+
+
+
+
+} 
+                data[key]= C
                 Json_data=json.dumps(data, indent=4)
                 j=hashlib.sha256(Json_data.encode('utf-8')).hexdigest()
-                v=file_path+'.'+j+'.csv'
+                v=rows['Filename'] +'.'+j+'.csv'
                 list.append(v)
         try:
             with open(json_path, 'w') as json_file:
