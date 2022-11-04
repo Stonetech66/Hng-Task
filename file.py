@@ -20,19 +20,22 @@ def convert():
                 list.append(v)
         try:
             with open(json_path, 'w') as json_file:
+                print('generating json file......') 
                 json_file.write(json.dumps(data, indent=4))
+                print('completed') 
         except FileNotFoundError:
             print('This json file does not exist. please create a json file e.g file.json and input it')
 
-      
+        print('generating new csv file .....') 
         data_new= pd.read_csv(file_path)
         data_new['New']= list
         new='new_'+file_path
         data_new.to_csv(new)
+        print('completed') 
         print('\nYour csv file is ready check->',new )
         print('\nYour json file is ready ->', json_path)
     except FileNotFoundError:
-            print('This file does not exist')
+            print('This csv file does not exist')
   
 
 
