@@ -1,6 +1,6 @@
-# Task
+# NFT Task
 
-This is a script created to generate a json file from a csv file and also append the Sha256 hash to the csv file. 
+This is a python script created to generate a json file from a csv file and also append the Sha256 hash to the csv file. 
 
 ## How To Use
 - First clone this repository 
